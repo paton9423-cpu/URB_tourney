@@ -8,6 +8,7 @@ interface MatchManagerProps {
   onMatchComplete: (match: Match, winnerId: string) => void;
   onBackToBracket: () => void;
   allowRandomize?: boolean;
+  allPlayers: Player[]; // AJOUTÉ POUR CORRIGER L'ERREUR DE BUILD
 }
 
 interface DuelState {
@@ -21,7 +22,8 @@ export function MatchManager({
   tournamentData, 
   onMatchComplete, 
   onBackToBracket,
-  allowRandomize 
+  allowRandomize,
+  allPlayers // AJOUTÉ ICI AUSSI
 }: MatchManagerProps) {
   const teamA = tournamentData.teams.find(t => t.id === match.teamAId);
   const teamB = tournamentData.teams.find(t => t.id === match.teamBId);
